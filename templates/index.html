@@ -1,0 +1,325 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- ***** Main Banner Area Start ***** -->
+  <div class="swiper-container" id="top">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="slide-inner" style="important; background-image:url({% static 'img/slide-01.jpg' %}); ">
+          <div class="dark-overlay"></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="header-text">
+                  <hr><br><hr>
+                  <h2>Check <em>for</em> all hospitals or health sectors<br> <em>around you</em></h2>
+                  <div class="div-dec"></div>
+                  <p>Discover local healthcare options here. Find hospitals, clinics, and medical centers nearby, all at your fingertips. Make informed decisions about your health with our easy-to-use platform.</p>
+                  <div class="buttons">
+                    <div class="green-button">
+                      <a href="#">Find Hospital</a>
+                    </div>
+                    <div class="orange-button">
+                      <a href="#">Request to add your hospital</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="slide-inner" style="important; background-image:url({% static 'img/slide-03.jpg' %}); ">
+          <div class="dark-overlay"></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="header-text">
+                  <hr><br><hr>
+                  <h2><em>Request</em> for ambulance <br> from <em>any</em> hospital</h2>
+                  <div class="div-dec"></div>
+                  <p>Easily initiate ambulance services when time is critical. Our platform allows you to swiftly request ambulance assistance from any hospital, ensuring timely medical transportation whenever urgent care is required.</p>
+                  <div class="buttons">
+                    <div class="green-button">
+                      <a href="#">Request for ambulance</a>
+                    </div>
+                    <div class="orange-button">
+                      <a href="#">Make a complaint</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="slide-inner" style="important; background-image:url({% static 'img/slide-02.jpg' %}); ">
+          <div class="dark-overlay"></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="header-text">
+                  <hr><br><hr>
+                  <h2>Chat with aidBot<br> that gives symptoms and cure on <em>different diseases</em></h2>
+                  <div class="div-dec"></div>
+                  <p>Engage in conversations with our interactive chatbot, designed to provide insights into various diseases. Discover symptoms, causes, and potential treatments through intuitive interactions, empowering you with valuable health information.</p>
+                  <div class="buttons">
+                    <div class="green-button">
+                      <a href="{% url 'chatbot' %}">AidBot chat</a>
+                    </div>
+                    <div class="orange-button">
+                      <a href="#">Contact Us</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next swiper-button-white"></div>
+    <div class="swiper-button-prev swiper-button-white"></div>
+  </div>
+
+  <!-- ***** Main Banner Area End ***** -->
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-hospital service-logo"></i>
+            <h4>Hospital Locator</h4>
+            <p> Quickly find nearby hospitals and healthcare centers for immediate medical attention.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-ambulance service-logo"></i>
+            <h4>Ambulance Request</h4>
+            <p> Swiftly request ambulance services from hospitals when urgent medical transportation is needed.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-virus service-logo"></i>
+            <h4>Disease Information</h4>
+            <p>Access comprehensive details about various diseases, including symptoms and possible cures.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-notes-medical service-logo"></i>
+            <h4>Healthcare Resources</h4>
+            <p>Explore a wealth of healthcare information, empowering informed decisions for your well-being.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-user-plus service-logo"></i>
+            <h4>Emergency Guidelines</h4>
+            <p>Learn essential steps to follow during medical emergencies, ensuring timely and appropriate actions.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-archway service-logo"></i>
+            <h4>Community Support</h4>
+            <p>Connect with a community of users, sharing experiences and insights for a supportive health journey.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="simple-cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <h4>Find <em>Hospitals</em> at <strong>Your Finger</strong>  Tips</h4>
+        </div>
+        <div class="col-lg-7">
+          <div class="buttons">
+            <div class="green-button">
+              <a href="#">Find Hospitals</a>
+            </div>
+            <div class="orange-button">
+              <a href="#">Add your hospital</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-us" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <!-- <div class="section-heading">
+            <h6>About Us</h6>
+            <h4>Know Us Better</h4>
+          </div> -->
+        </div>
+        <div class="col-lg-8">
+          <div class="naccs">
+            <div class="tabs">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="menu">
+                    <div class="active gradient-border"><span>Most Popular</span></div>
+                    <div class="gradient-border"><span>Most Rated</span></div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <ul class="nacc">
+                    <li class="active">
+                      <div>
+                        <div class="main-list">
+                          <span class="title">Name</span>
+                          <span class="title">State</span>
+                          <span class="title">City</span>
+                          <span class="title">Contact</span>
+                        </div>
+                        <div class="list-item">
+                          <span class="item item-title">State Hospital</span>
+                          <span class="item">Ogun</span>
+                          <span class="item">Ota</span>
+                          <span class="item">08165994421</span>
+                        </div>
+                        <div class="list-item">
+                          <span class="item item-title">State Hospital</span>
+                          <span class="item">Ogun</span>
+                          <span class="item">Ota</span>
+                          <span class="item">08165994421</span>
+                        </div>
+                        <div class="list-item">
+                          <span class="item item-title">State Hospital</span>
+                          <span class="item">Ogun</span>
+                          <span class="item">Ota</span>
+                          <span class="item">08165994421</span>
+                        </div>
+                        <div class="list-item last-item">
+                          <span class="item item-title">State Hospital</span>
+                          <span class="item">Ogun</span>
+                          <span class="item">Ota</span>
+                          <span class="item">08165994421</span>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <div class="main-list">
+                          <span class="title">Project Title</span>
+                          <span class="title">Budget</span>
+                          <span class="title">Deadline</span>
+                          <span class="title">Client</span>
+                        </div>
+                        <div class="list-item">
+                          <span class="item item-title">State Hospital</span>
+                          <span class="item">Ogun</span>
+                          <span class="item">Ota</span>
+                          <span class="item">08165994421</span>
+                        </div>
+                        <div class="list-item">
+                          <span class="item item-title">State Hospital</span>
+                          <span class="item">Ogun</span>
+                          <span class="item">Ota</span>
+                          <span class="item">08165994421</span>
+                        </div>
+                        <div class="list-item">
+                          <span class="item item-title">State Hospital</span>
+                          <span class="item">Ogun</span>
+                          <span class="item">Ota</span>
+                          <span class="item">08165994421</span>
+                        </div>
+                        <div class="list-item last-item">
+                          <span class="item item-title">State Hospital</span>
+                          <span class="item">Ogun</span>
+                          <span class="item">Ota</span>
+                          <span class="item">08165994421</span>
+                        </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="col-lg-4">
+          <div class="right-content">
+            <h4>Share Your App Experience and Ideas</h4>
+            <p>We value your input! Please take a moment to share your experience with our app so far and any ideas you have for its improvement.
+              <br><br> How has the app been helpful to you in finding hospitals, receiving recommendations, or requesting ambulances? We're eager to hear your suggestions on how we can enhance your app experience even further. Feel free to provide any specific features or functionalities you'd like to see. 
+              <br><br>Your feedback will play a crucial role in shaping the future of our app.</p>
+            <div class="green-button">
+              <a href="#calculate">Share Experience</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="calculator">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="dark-overlay-c"></div>
+          <div class="left-image">
+            <img height="800" src="{% static 'img/calculator-image.png' %}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="section-heading">
+            <h6>Your feedback</h6>
+            <h4>Share Your Experience</h4>
+          </div>
+          <form id="calculate" action="" method="get">
+            <div class="row">
+              <div class="col-lg-6">
+                <fieldset>
+                  <label for="name">Your Name</label>
+                  <input type="name" name="name" id="name" placeholder="" autocomplete="on" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-6">
+                <fieldset>
+                  <label for="email">Your Email</label>
+                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="" required="">
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <label for="subject">Subject</label>
+                  <input type="subject" name="subject" id="subject" placeholder="" autocomplete="on" >
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <label class="form-label">Your Message</label>
+                  <textarea rows="7"> </textarea>
+                      
+              </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="orange-button">Submit Now</button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="partners">
+  </section> -->
+
+  {% endblock %}
