@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block style %}
+    <title>{{ hospital.name }} Details</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        /* Add your CSS styles here */
+        #hospitalMap {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<section class="services" id="services">
+
+    <div class="container">
+      <div class="section-heading">
+      <br>
+            <h6>Welcome To</h6>
+            <h4>{{hospital.name}}</h4>
+          </div> 
+      <div class="row">
+        
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-hospital service-logo"></i>
+            <h4>Hospital name</h4>
+            <p> {{hospital.name}}</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-ambulance service-logo"></i>
+            <h4>Hospital Contact</h4>
+            <p> {{hospital.phone_number}}</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-virus service-logo"></i>
+            <h4>Hospital address</h4>
+            <p>{{ hospital.address}}</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-notes-medical service-logo"></i>
+            <h4>Ownership</h4>
+            <p>{{hospital.ownership}}</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-user-plus service-logo"></i>
+            <h4>Ownership Type</h4>
+            <p>{{hospital.ownership_type}}</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-archway service-logo"></i>
+            <h4>Facility Level</h4>
+            <p>{{hospital.facility_level}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+    
+  <section class="about-us " id="about" style="margin: 10px;">
+    <div class="container ">
+      <div class="row">
+       <div class="buttons " style="display: inline-flex;">
+           <div class="green-button "  style="padding-right: 10px;">
+                  <a href="https://www.google.com/maps/dir/?api=1&destination={{ hospital.latitude }},{{ hospital.longitude }}" target="_blank">Get Directions to {{ hospital.name }}</a>
+
+            </div>
+            
+            <div class="orange-button " >
+              <a href="#" >Request Ambulance from {{hospital.name}}</a>
+            </div>
+            </div>
+       </div>
+         
+          
+        </div>
+        
+        <br>
+        
+       
+      </div>
+
+
+  </div>
+    
+    <div id="hospitalMap"></div>
+<br>
+    </section>
+
+    {% endblock %}
+
+    {% block script %}
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        var hospitalMap = L.map('hospitalMap').setView([{{ hospital.latitude }}, {{ hospital.longitude }}], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(hospitalMap);
+
+        L.marker([{{ hospital.latitude }}, {{ hospital.longitude }}]).addTo(hospitalMap)
+            .bindPopup('{{ hospital.name }}').openPopup();
+    </script>
+{% endblock %}

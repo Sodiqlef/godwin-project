@@ -1,17 +1,26 @@
 import time
 import random
+import requests
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
+from .models import Hospital
 
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from geopy.geocoders import Nominatim
+
 
 from knowledge_base import knowledge_base, preferred_keywords, greeting_queries, failed_queries
 
 # Create your views here.
+
+
+
 period = int(time.strftime('%H'))
 
 # Preprocess the knowledge base data
@@ -101,3 +110,23 @@ def get_response(request):
         return JsonResponse({'response': response})
     else:
         return JsonResponse({'error': 'Invalid request method'}, status=400)
+    
+
+def map(request):
+    IPINFO_API_URL = "http://ipinfo.io/json"
+    response = requests.get(IPINFO_API_URL)
+    data = response.json()
+    device_latitude, device_longitude = data.get("loc", "").split(",")
+    print(device_longitude)
+    
+    return render(request, 'map.html', {'device_latitude': device_latitude, 'device_longtitude': device_longitude})
+
+
+def hospital_list(request):
+    hospitals = Hospital.objects.all()
+    return render(request, 'hospital_list.html', {'hospitals': hospitals})
+
+
+def hospital_detail(request, hospital_id):
+    hospital = get_object_or_404(Hospital, pk=hospital_id)
+    return render(request, 'locator.html', {'hospital': hospital})

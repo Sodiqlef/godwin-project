@@ -1,17 +1,21 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
+  {% load pwa %}
+{% progressive_web_app_meta %}
+
+    
 
   <head>
-
+    <link rel="manifest" href="manifest.json">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+    {% block style %}
+    {% endblock %}
     <title>Lifesaver ER</title>
 
     <!-- Bootstrap core CSS -->
@@ -31,13 +35,13 @@
 
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
+  <header class="header-area header-sticky bg-dark">
       <div class="container">
           <div class="row">
               <div class="col-12">
-                  <nav class="main-nav">
+                  <nav class="main-nav"> 
                       <!-- ***** Logo Start ***** -->
-                      <a href="{% url 'home' %}" class="logo">
+                      <a href="{% url 'home' %}" class="logo" style="color: #ff511a;">
                           LIFESAVER ER
                       </a>
                       <!-- ***** Logo End ***** -->
@@ -58,6 +62,8 @@
       </div>
     </header>
     <!-- ***** Header Area End ***** -->
+
+  
     {% block content %}
     {% endblock %}
 
@@ -73,8 +79,11 @@
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
+
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    {% block script %}
+{% endblock %}
 
     <script src="{% static 'js/isotope.min.js' %}"></script>
     <script src="{% static 'js/owl-carousel.js' %}"></script>
@@ -127,5 +136,48 @@
 
       var swiper = new Swiper(".swiper-container", swiperOptions);
     </script>
+        <script>
+      let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent the default browser install prompt
+  e.preventDefault();
+
+  // Store the event for later use
+  deferredPrompt = e;
+
+  // Display your custom install button or notification
+  // You can show a button in your UI with an event listener that calls prompt() on deferredPrompt when clicked
+  showInstallButton();
+});
+
+function showInstallButton() {
+  // Display a custom button or notification to prompt the user to install the app
+  // You can use your own HTML and CSS for this button
+  const installButton = document.getElementById('install-button');
+
+  if (installButton) {
+    installButton.style.display = 'block';
+    installButton.addEventListener('click', () => {
+      // Show the browser's install prompt
+      deferredPrompt.prompt();
+
+      // Wait for the user's choice
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the install prompt');
+        } else {
+          console.log('User dismissed the install prompt');
+        }
+
+        // Reset the deferredPrompt variable
+        deferredPrompt = null;
+      });
+    });
+  }
+}
+
+    </script>
+
   </body>
 </html>

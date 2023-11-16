@@ -1677,7 +1677,7 @@ body {
   .simple-cta {
     text-align: center;
   }
-  section.simple-cta .buttons {
+  section.simple-cta .buttons, .but {
     justify-content: center;
   }
   section.about-us .naccs .menu div,

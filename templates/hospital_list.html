@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="container">
+    <table class="table table responsive">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Contact</th>
+      <th scope="col">Adress</th>
+      <th scope="col">Ownership</th>
+      <th scope="col">Facility Level</th>
+      <th></th>
+      
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+  {% for hospital in hospitals %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{hospital.name}}</td>
+      <td>{{hospital.phone_number}}</td>
+      <td>{{hospital.address}}</td>
+      <td>{{hospital.ownership}}</td>
+      <td>{{hospital.facility_level}}</td>
+      <td><a href="" style="color: #43ba7f;">View on map</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</section>
+
+
+{% endblock %}

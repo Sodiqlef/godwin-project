@@ -21,5 +21,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('chatbot/', views.chatbot, name='chatbot'),
     path('get/', views.get_response, name='get'),
-
+    path('map/', views.map, name='map'),
+    path('hospitals/', views.hospital_list, name='hospital_list'),
+    path('hospitals/<int:hospital_id>/', views.hospital_detail, name='hospital_detail'),
 ]
